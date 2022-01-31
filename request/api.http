@@ -1,0 +1,15 @@
+@hostname = localhost
+@port = 12346
+@host = http://{{hostname}}:{{port}}
+
+### 
+@api = /api/devices/
+GET {{host}}/{{api}}
+
+###
+POST {{host}}/{{api}}
+Content-Type: application/json
+
+{
+  "init": "ok", "sn":"1234", "model":"test-1234",
+}

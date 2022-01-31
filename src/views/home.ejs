@@ -1,0 +1,53 @@
+<div class="text-center">
+  <h1>Home</h1>
+  <div class="container">
+      <div class="row justify-content-md-center">
+          <div class="col"><div class="p-3 mb-2 bg-primary text-white">Init:</div></div>
+          <div class="col"><div class="p-3 mb-2 bg-success text-white" id="init"><%= init %></div></div>
+      </div>
+      <div class="row justify-content-md-center"> 
+          <div class="col"><div class="p-3 mb-2 bg-primary text-white">Type</div></div>
+          <div class="col"><div class="p-3 mb-2 bg-secondary text-white" id="type"><%= type %></div></div>
+      </div>
+      <div class="row justify-content-md-center">
+          <div class="col"><div class="p-3 mb-2 bg-primary text-white">SN:</div></div>
+          <div class="col">
+              <div class="p-3 mb-2 bg-secondary text-white">
+                  <label id="sn"><%= sn %></label>
+                  <button type="button" class="btn btn-primary" id="btnResetSN">Reset</button>
+              </div>
+          </div>
+      </div>
+      <div class="row justify-content-md-center">
+          <div class="col"><div class="p-3 mb-2 bg-primary text-white">Mode:</div></div>
+          <div class="col"><div class="p-3 mb-2 bg-danger text-white" id="mode"><%= mode %></div></div>
+      </div>
+  </div>
+</div>
+
+<script>
+
+    const socket = io.connect()
+
+    socket.on('init', (str) =>
+        $('#init').html(str)        
+    )
+
+    socket.on('type', (str) =>
+        $('#type').html(str)        
+    )
+
+    socket.on('sn', (str) =>
+        $('#sn').html(str)        
+    )
+
+    socket.on('mode', (str) => {
+        $('#mode').html(str) 
+    }
+       
+    )
+
+    $("#btnResetSN").click(()=> {
+        socket.emit('resetSN')
+    })
+</script>

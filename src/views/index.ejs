@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+    <%-include("head.ejs") %>
+<body>
+    <%-include("navbar.ejs") %>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <%-include("home.ejs") %>
+        </main>
+    </div>
+    <%-include("footer.ejs") %>
+
+<script>
+    $('#myCollapse').on('shown.bs.collapse', function (e) {
+  console.log(e);
+})
+</script>
+</body>
+</html>
