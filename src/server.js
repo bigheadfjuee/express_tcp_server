@@ -8,6 +8,8 @@ const routes = require('./routes/index.route')
 const tcpServer = require('./lib/tcp_server')
 const sysStatus = require('./lib/sys_status')
 const Config = require('./lib/my_config')
+const DB = require('./db')
+const DBScript = require('./initDB')
 
 const app = express()
 const server = require('http').Server(app)
@@ -36,6 +38,9 @@ app.use((req, res, next) => {
   req.ws = ws
   next()
 })
+
+DB.init()
+DBScript.insert()
 
 app.use('/', routes)
 

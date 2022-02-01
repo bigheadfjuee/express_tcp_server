@@ -1,0 +1,19 @@
+### https://marketplace.visualstudio.com/items?itemName=humao.rest-client
+
+@HOST = 192.168.1.102
+@API_URL = http://{{HOST}}:8090/api
+@jwtoken = {{login.response.body.token}}
+
+# @name login
+POST {{API_URL}}/auth/login
+content-type: application/json
+
+{
+  "username" : "admin",
+  "password" : "1234"
+}
+
+### 取得網路設定
+GET {{API_URL}}/system/network
+token : {{jwtoken}}
+

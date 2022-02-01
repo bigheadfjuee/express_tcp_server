@@ -7,7 +7,7 @@ const path = require('path')
 const routes = require('./routes/index.route')
 const tcpServer = require('./lib/tcp_server')
 const sysStatus = require('./lib/sys_status')
-const Config = require('./lib/bxb_config')
+const Config = require('./lib/my_config')
 
 const app = express()
 const server = require('http').Server(app)
