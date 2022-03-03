@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "build": "gulp product",
-    "deploy": "gulp product && node scripts/deploy.js"
+    "deploy": "gulp product && node scripts/deploy.js",
+    "client": "cd src && node app.js"
   },
   "keywords": [],
   "author": "Tony Lee",
